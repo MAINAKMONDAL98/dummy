@@ -25,12 +25,17 @@ void loop() {
           myservo.write(90);  // set servo to mid-point
           delay(200);
           myservo.write(0);
+          delay(1000);
           a2=a2-1;
+        if(a2<=2){
+            Serial.println("REFILL");
+            if(Serial.available()>0){
+              a1=Serial.read()+a2;
+              a2=a1;
+          }
         }
       }
-     if(a2<=2){
-        Serial.println("REFILL");
-     }
+     
     }
   }
    
